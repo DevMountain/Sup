@@ -14,6 +14,10 @@
 
 + (SAUsersDataSource *)sharedInstance;
 
+- (void)reloadUsers;
+
 - (void)setTableView:(UITableView *)tableView;
+
+- (NSString *)usernameAtIndex:(NSIndexPath *)indexPath;
 
 @end

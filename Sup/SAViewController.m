@@ -29,9 +29,20 @@
 
 - (void)loggedIn {
     
+    // When users indicate they are Giants fans, we subscribe them to that channel.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:[PFUser currentUser].username forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
     SAUsersViewController *viewController = [SAUsersViewController new];
     [self.navigationController pushViewController:viewController animated:NO];
 
+}
+
+- (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {
+ 
+    // Note, if the user didn't let you register for push you may want to handle that
+    
 }
 
 - (void)didReceiveMemoryWarning

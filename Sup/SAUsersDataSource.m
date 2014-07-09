@@ -64,4 +64,9 @@
     _tableView = tableView;
 }
 
+- (NSString *)usernameAtIndex:(NSIndexPath *)indexPath {
+    PFUser *user = self.users[indexPath.row];
+    return user.username;
+}
+
 @end
