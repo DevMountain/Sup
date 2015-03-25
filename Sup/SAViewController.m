@@ -10,6 +10,7 @@
 #import "SAUsersViewController.h"
 
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface SAViewController () <UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 
@@ -29,7 +30,7 @@
 
 - (void)loggedIn {
     
-    // When users indicate they are Giants fans, we subscribe them to that channel.
+    // We can use usernames as channels.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation addUniqueObject:[PFUser currentUser].username forKey:@"channels"];
     [currentInstallation saveInBackground];
